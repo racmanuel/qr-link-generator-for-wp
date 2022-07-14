@@ -1,4 +1,4 @@
-(function( $ ) {
+(function ($) {
 	'use strict';
 
 	/**
@@ -29,4 +29,36 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-})( jQuery );
+	$(function () {
+
+		var qrcode = new QRCode("qr-link-generator-for-wp-qr-code");
+
+		function makeCode() {
+			var qr_input_value = document.getElementById("qr-link-generator-for-wp-input-value", {
+				width: 80,
+				height: 80,
+				colorDark: '#000000',
+				colorLight: '#ffffff',
+			});
+
+			if (!qr_input_value.value) {
+				qr_input_value.focus();
+				return;
+			}
+
+			qrcode.makeCode(qr_input_value.value);
+		}
+
+		makeCode();
+
+		$("#qr-link-generator-for-wp-input-value").
+		on("blur", function () {
+			makeCode();
+		}).
+		on("keydown", function (e) {
+			if (e.keyCode == 13) {
+				makeCode();
+			}
+		});
+	});
+})(jQuery);

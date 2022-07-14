@@ -1,4 +1,1 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+:root{--qr-link-generator-for-wp-primary:#FFFFFF;--qr-link-generator-for-wp-secondary:#000000;--qr-link-generator-for-wp-padding:2%;--qr-link-generator-for-wp-font-size:10px}*{-webkit-box-sizing:border-box;box-sizing:border-box}.qr-link-generator-for-wp-column{float:left;width:100%;padding:10px;text-align:center}.qr-link-generator-for-wp-row:after{content:"";display:table;clear:both;width:50%}#qr-link-generator-for-wp-form{padding-top:var(--qr-link-generator-for-wp-padding);padding-bottom:var(--qr-link-generator-for-wp-padding)}#qr-link-generator-for-wp-qr-code{padding-top:var(--qr-link-generator-for-wp-padding);padding-bottom:var(--qr-link-generator-for-wp-padding)}#qr-link-generator-for-wp-qr-code>img{padding:0px;margin:auto;display:block;width:256px}#qr-link-generator-for-wp-credits{text-align:center;font-size:var(--qr-link-generator-for-wp-font-size);padding-top:var(--qr-link-generator-for-wp-padding);padding-bottom:var(--qr-link-generator-for-wp-padding)}
