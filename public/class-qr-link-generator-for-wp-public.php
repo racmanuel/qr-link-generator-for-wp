@@ -135,6 +135,10 @@ class Qr_Link_Generator_For_Wp_Public {
 			$out = intval( $atts['attribute'] ) . ' ' . sanitize_text_field( $out );// Remember to sanitize your user input.
 		}
 
+		ob_start();
+			include_once 'partials/'.$this->plugin_name.'-public-display.php';
+		$out = ob_get_clean();
+
 		// ShortCodes are filters and should always return, never echo.
 		return $out;
 
