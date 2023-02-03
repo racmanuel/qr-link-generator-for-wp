@@ -17,7 +17,7 @@
  * Description:       Plugin to Generate QR Code with link inserted by the user in front-end with a form.
  * Version:           1.0.0
  * Author:            Manuel Ramirez Coronel
- * Requires at least: 1.0.0
+ * Requires at least: 5.2
  * Requires PHP:      7.4
  * Tested up to:      6.0
  * Author URI:        https://racmanuel.dev/
