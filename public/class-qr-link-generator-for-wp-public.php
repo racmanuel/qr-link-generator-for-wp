@@ -72,7 +72,7 @@ class Qr_Link_Generator_For_Wp_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/qr-link-generator-for-wp-public.css', array(), $this->version, 'all' );
+		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/qr-link-generator-for-wp-public-dist.css', array(), $this->version, 'all' );
 
 	}
 
@@ -83,8 +83,8 @@ class Qr_Link_Generator_For_Wp_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/qr-link-generator-for-wp-public.js', array( 'jquery' ), $this->version, true );
-		wp_enqueue_script( $this->plugin_name . '-qrcode', plugin_dir_url( __FILE__ ) . 'js/qrcode.min.js', array( 'jquery' ), $this->version, true );
+		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/qr-link-generator-for-wp-public-dist.js', array( 'jquery' ), $this->version, true );
+		wp_register_script( $this->plugin_name . '-qrcode', plugin_dir_url( __FILE__ ) . 'js/qrcode.min.js', array( 'jquery' ), $this->version, true );
 
 	}
 
@@ -140,6 +140,9 @@ class Qr_Link_Generator_For_Wp_Public {
 			include_once 'partials/'.$this->plugin_name.'-public-display.php';
 		$out = ob_get_clean();
 
+		wp_enqueue_style($this->plugin_name);
+		wp_enqueue_script($this->plugin_name);
+		wp_enqueue_script($this->plugin_name . '-qrcode');
 		// ShortCodes are filters and should always return, never echo.
 		return $out;
 

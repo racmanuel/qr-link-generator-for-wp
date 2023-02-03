@@ -1,5 +1,9 @@
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'; // optional for styling
+
 (function ($) {
 	'use strict';
+	
 
 	/**
 	 * All of the code for your public-facing JavaScript source
@@ -30,6 +34,7 @@
 	 */
 
 	$(function () {
+		
 
 		var qrcode = new QRCode("qr-link-generator-for-wp-qr-code");
 
@@ -59,6 +64,13 @@
 			if (e.keyCode == 13) {
 				makeCode();
 			}
+		});
+
+		tippy('#qr-link-generator-for-wp-input-value', {
+			arrow: true,
+			theme: 'translucent',
+			delay: 500,
+			content: 'Insert here your content can be a URL or any text that is converted to QR Code. The QR Code changes automatically when changing the content of the field.',
 		});
 	});
 })(jQuery);

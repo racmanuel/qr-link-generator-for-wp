@@ -22,7 +22,7 @@
         </form>
         <div id="<?=$this->plugin_name . '-qr-code';?>"></div>
         <div id="<?=$this->plugin_name . '-credits';?>">
-            <p>Made with ❤ and WordPress by <a href="http://racmanuel.dev">racmanuel.</a></p>
+            <p>Made with ❤ and Code by <a href="http://racmanuel.dev">racmanuel.</a></p>
         </div>
     </div>
 </div>
