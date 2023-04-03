@@ -171,7 +171,7 @@ class Qr_Link_Generator_For_Wp {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'qr_link_generator_for_wp_admin_settings' );
 	}
 
 	/**

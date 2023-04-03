@@ -147,5 +147,4 @@ class Qr_Link_Generator_For_Wp_Public {
 		return $out;
 
 	}
-
 }

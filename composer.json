@@ -1,0 +1,9 @@
+{
+    "require": {
+        "chillerlan/php-qrcode": "^4.3",
+        "cmb2/cmb2": "^2.10"
+    },
+    "autoload": {
+        "files": ["vendor/cmb2/cmb2/init.php"]
+    }
+}
