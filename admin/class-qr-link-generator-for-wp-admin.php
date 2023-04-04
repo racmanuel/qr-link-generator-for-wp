@@ -128,42 +128,158 @@ class Qr_Link_Generator_For_Wp_Admin
             // 'message_cb'      => 'yourprefix_options_page_message_callback',
         ));
 
-        $cmb->add_field( array(
-			'name'    => 'Active QR in ',
-			'desc'    => 'Check the box if you need show the QR in the Front-End of the page.',
-			'id'      => 'wiki_test_multicheckbox',
-			'type'    => 'multicheck',
-			'options' => array(
-				'post' => 'Posts',
-				'page' => 'Pages',
-				'product' => 'Products',
-			)
-		));
+        $cmb->add_field(array(
+            'name' => 'QR Link Generator for WP',
+            'desc' => '',
+            'type' => 'title',
+            'id' => 'qr_link_generator_for_wp_title',
+        ));
 
-		$cmb->add_field( array(
-			'name' => 'Test Title',
-			'desc' => 'This is a title description',
-			'type' => 'title',
-			'id'   => 'wiki_test_title',
-			'before_row' => $this->cmb_after_row_cb(),
-		) );
+        $cmb->add_field(array(
+            'name' => 'Active QR',
+            'desc' => 'Check the box if you need show the QR in the Front-End of the page.',
+            'id' => 'qr_link_generator_for_wp_active',
+            'type' => 'multicheck',
+            'options' => array(
+                'post' => 'Posts',
+                'page' => 'Pages',
+                'product' => 'Products',
+            ),
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Display',
+            'desc' => '',
+            'type' => 'title',
+            'id' => 'qr_link_generator_for_wp_display',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'QR Code Size',
+            'desc' => '',
+            'default' => '200',
+            'id' => 'qr_link_generator_for_wp_size',
+            'type' => 'text',
+            'attributes' => array(
+                'type' => 'number',
+                'pattern' => '\d*',
+            ),
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'QR Code Alignament',
+            'desc' => 'Select an option',
+            'id' => 'qr_link_generator_for_wp_align',
+            'type' => 'select',
+            'show_option_none' => true,
+            'default' => 'center',
+            'options' => array(
+                'center' => __('Center', 'cmb2'),
+                'left' => __('Left', 'cmb2'),
+                'right' => __('Right', 'cmb2'),
+            ),
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Text of Download Button',
+            'desc' => '',
+            'default' => 'Download QR Code',
+            'id' => 'qr_link_generator_for_wp_text_download',
+            'type' => 'text',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Hide button?',
+            'desc' => 'Select an option',
+            'id' => 'qr_link_generator_for_wp_hide_button',
+            'type' => 'select',
+            'show_option_none' => false,
+            'default' => 'no',
+            'options' => array(
+                'yes' => __('Yes', 'cmb2'),
+                'no' => __('No', 'cmb2'),
+            ),
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Button Color',
+            'id' => 'qr_link_generator_for_wp_button_color',
+            'type' => 'colorpicker',
+            'default' => '#ffffff',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Button Background',
+            'id' => 'qr_link_generator_for_wp_button_background',
+            'type' => 'colorpicker',
+            'default' => '#ffffff',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Display in Products',
+            'desc' => '',
+            'type' => 'title',
+            'id' => 'qr_link_generator_for_wp_display_products',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'QR Code Alignament (Product Page)',
+            'desc' => 'Select an option',
+            'id' => 'qr_link_generator_for_wp_align_product',
+            'type' => 'select',
+            'show_option_none' => false,
+            'default' => 'center',
+            'options' => array(
+                'center' => __('Center', 'cmb2'),
+                'left' => __('Left', 'cmb2'),
+                'right' => __('Right', 'cmb2'),
+            ),
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Text of Product Tab',
+            'desc' => '',
+            'default' => 'QR Code',
+            'id' => 'qr_link_generator_for_wp_text_tab',
+            'type' => 'text',
+        ));
+
+        $cmb->add_field(array(
+            'name' => 'Test Title',
+            'desc' => 'This is a title description',
+            'type' => 'title',
+            'id' => 'wiki_test_title',
+            'after_row' => $this->cmb_after_row_cb(),
+        ));
     }
 
-	public function cmb_after_row_cb() {
+    public function cmb_after_row_cb()
+    {
+        $settings = get_option('qr_link_generator_for_wp_settings');
 
-		// Get All Post Types as List
-		/** New Object for the QRCode - Library */
+        $size = $settings['qr_link_generator_for_wp_size'];
+        $align = $settings['qr_link_generator_for_wp_align'];
+        $text_download = $settings['qr_link_generator_for_wp_text_download'];
+        $button_color = $settings['qr_link_generator_for_wp_button_color'];
+        $button_background_color = $settings['qr_link_generator_for_wp_button_background'];
+        $button_hide = $settings['qr_link_generator_for_wp_hide_button'];
+        $class = '';
+        if ($button_hide == 'yes') {
+            $class = 'none';
+        }
+
+        /** New Object for the QRCode - Library */
         $qrcode = new QRCode;
-		$text = 'Hola';
-		ob_start();
-            /** Return the QR Code and Button for Download in Users List in WP Admin */
-            ?>
-            <p style="text-align: center;">
-                <img src="<?php echo $qrcode->render($text) ?>" alt="QR Code" width="80px"/>
-            </p>
-        <?php
-        $val = ob_get_clean();
-		return $val;
-	}
+        $text = 'Hola';
 
+        ob_start();
+
+        echo "<pre>";
+        print_r($settings);
+        echo "</pre>";
+
+        require 'partials/qr-link-generator-for-wp-admin-display.php';
+        $html = ob_get_clean();
+        return $html;
+    }
 }

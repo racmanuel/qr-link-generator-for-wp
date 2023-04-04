@@ -191,6 +191,8 @@ class Qr_Link_Generator_For_Wp {
 		// Shortcode name must be the same as in shortcode_atts() third parameter.
 		$this->loader->add_shortcode( $this->get_plugin_prefix() . 'shortcode', $plugin_public, 'qr_link_generator_for_wp_shortcode_func' );
 
+		//Add a new custom product tab
+		$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'qr_link_generator_for_wp_product_tab' );
 	}
 
 	/**
