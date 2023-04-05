@@ -191,8 +191,20 @@ class Qr_Link_Generator_For_Wp {
 		// Shortcode name must be the same as in shortcode_atts() third parameter.
 		$this->loader->add_shortcode( $this->get_plugin_prefix() . 'shortcode', $plugin_public, 'qr_link_generator_for_wp_shortcode_func' );
 
-		//Add a new custom product tab
-		$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'qr_link_generator_for_wp_product_tab' );
+		$settings = get_option('qr_link_generator_for_wp_settings');
+
+		$active_options = $settings['qr_link_generator_for_wp_active'];
+
+		$products = array_search('product', $active_options, TRUE);
+		$post = array_search('post', $active_options, TRUE);
+
+		if ($products) {
+			//Add a new custom product tab
+			$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'qr_link_generator_for_wp_product_tab' );
+		}
+		if($post){
+			$this->loader->add_filter( 'the_content',  $plugin_public, 'agregar_contenido_al_final_del_post' );
+		}
 	}
 
 	/**

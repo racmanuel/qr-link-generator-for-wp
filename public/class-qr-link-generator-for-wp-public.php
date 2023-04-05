@@ -202,4 +202,13 @@ class Qr_Link_Generator_For_Wp_Public
         $html = ob_get_clean();
         echo $html;
     }
+
+    public function agregar_contenido_al_final_del_post( $content ) {
+        if ( is_single() && 'post' == get_post_type()  ) {
+            $nuevo_contenido = $content . '<div class="mi-clase">Mi código HTML aquí</div>';
+            return $nuevo_contenido;
+        } else {
+            return $content;
+        }
+    }
 }
