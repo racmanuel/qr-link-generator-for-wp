@@ -193,17 +193,14 @@ class Qr_Link_Generator_For_Wp {
 
 		$settings = get_option('qr_link_generator_for_wp_settings');
 
-		$active_options = $settings['qr_link_generator_for_wp_active'];
+		if (isset($settings['qr_link_generator_for_wp_active'])) {
+			
+			$active_qr = $settings['qr_link_generator_for_wp_active'];
 
-		$products = array_search('product', $active_options, TRUE);
-		$post = array_search('post', $active_options, TRUE);
-
-		if ($products) {
-			//Add a new custom product tab
-			$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'qr_link_generator_for_wp_product_tab' );
-		}
-		if($post){
-			$this->loader->add_filter( 'the_content',  $plugin_public, 'agregar_contenido_al_final_del_post' );
+			if ($active_qr == 'on') {
+				//Add a new custom product tab
+				$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'qr_link_generator_for_wp_product_tab' );
+			}
 		}
 	}
 

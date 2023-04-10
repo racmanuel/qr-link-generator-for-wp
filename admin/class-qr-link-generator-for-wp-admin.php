@@ -137,14 +137,9 @@ class Qr_Link_Generator_For_Wp_Admin
 
         $cmb->add_field(array(
             'name' => 'Active QR',
-            'desc' => 'Check the box if you need show the QR in the Front-End of the page.',
+            'desc' => 'Check the box if you need show the QR Code in the products of WooCommerce.',
             'id' => 'qr_link_generator_for_wp_active',
-            'type' => 'multicheck',
-            'options' => array(
-                'post' => 'Posts',
-                'page' => 'Pages',
-                'product' => 'Products',
-            ),
+            'type' => 'checkbox',
         ));
 
         $cmb->add_field(array(
@@ -171,7 +166,7 @@ class Qr_Link_Generator_For_Wp_Admin
             'desc' => 'Select an option',
             'id' => 'qr_link_generator_for_wp_align',
             'type' => 'select',
-            'show_option_none' => true,
+            'show_option_none' => false,
             'default' => 'center',
             'options' => array(
                 'center' => __('Center', 'cmb2'),
@@ -243,43 +238,5 @@ class Qr_Link_Generator_For_Wp_Admin
             'id' => 'qr_link_generator_for_wp_text_tab',
             'type' => 'text',
         ));
-
-        $cmb->add_field(array(
-            'name' => 'Test Title',
-            'desc' => 'This is a title description',
-            'type' => 'title',
-            'id' => 'wiki_test_title',
-            'after_row' => $this->cmb_after_row_cb(),
-        ));
-    }
-
-    public function cmb_after_row_cb()
-    {
-        $settings = get_option('qr_link_generator_for_wp_settings');
-
-        $size = $settings['qr_link_generator_for_wp_size'];
-        $align = $settings['qr_link_generator_for_wp_align'];
-        $text_download = $settings['qr_link_generator_for_wp_text_download'];
-        $button_color = $settings['qr_link_generator_for_wp_button_color'];
-        $button_background_color = $settings['qr_link_generator_for_wp_button_background'];
-        $button_hide = $settings['qr_link_generator_for_wp_hide_button'];
-        $class = '';
-        if ($button_hide == 'yes') {
-            $class = 'none';
-        }
-
-        /** New Object for the QRCode - Library */
-        $qrcode = new QRCode;
-        $text = 'Hola';
-
-        ob_start();
-
-        echo "<pre>";
-        print_r($settings);
-        echo "</pre>";
-
-        require 'partials/qr-link-generator-for-wp-admin-display.php';
-        $html = ob_get_clean();
-        return $html;
     }
 }

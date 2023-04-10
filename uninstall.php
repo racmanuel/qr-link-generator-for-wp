@@ -56,6 +56,8 @@ function qr_link_generator_for_wp_uninstall() {
 	 * @see https://developer.wordpress.org/plugins/plugin-basics/uninstall-methods/#method-2-uninstall-php
 	 */
 
+	delete_option('qr_link_generator_for_wp_settings');
+
 }
 
 qr_link_generator_for_wp_uninstall();

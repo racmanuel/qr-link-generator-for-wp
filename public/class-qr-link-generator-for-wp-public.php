@@ -194,21 +194,8 @@ class Qr_Link_Generator_For_Wp_Public
         $qrcode = new QRCode;
         ob_start();
 
-        echo "<pre>";
-        print_r($settings);
-        echo "</pre>";
-
         require 'partials/qr-link-generator-for-wp-public-display-qr.php';
         $html = ob_get_clean();
         echo $html;
-    }
-
-    public function agregar_contenido_al_final_del_post( $content ) {
-        if ( is_single() && 'post' == get_post_type()  ) {
-            $nuevo_contenido = $content . '<div class="mi-clase">Mi código HTML aquí</div>';
-            return $nuevo_contenido;
-        } else {
-            return $content;
-        }
     }
 }
