@@ -15,11 +15,11 @@
  * Plugin Name:       QR Link Generator for WP
  * Plugin URI:        https://plugin.com/qr-link-generator-for-wp-uri/
  * Description:       Plugin to Generate QR Code with link inserted by the user in front-end with a form.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Manuel Ramirez Coronel
  * Requires at least: 5.2
  * Requires PHP:      7.4
- * Tested up to:      6.1.1
+ * Tested up to:      6.2
  * Author URI:        https://racmanuel.dev/
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt

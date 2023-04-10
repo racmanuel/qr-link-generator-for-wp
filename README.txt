@@ -1,10 +1,10 @@
 === QR Link Generator for WP ===
 Contributors: racmanuel
 Donate link: https://link.mercadopago.com.mx/racmanuel
-Tags: 1.0.1
+Tags: 1.0.2
 Requires at least: 5.2
-Tested up to: 6.1.1
-Stable tag: 1.0.1
+Tested up to: 6.2
+Stable tag: 1.0.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
