@@ -3,7 +3,7 @@ Contributors: racmanuel
 Donate link: https://link.mercadopago.com.mx/racmanuel
 Tags: 1.0.3
 Requires at least: 5.2
-Tested up to: 6.2
+Tested up to: 6.4
 Stable tag: 1.0.3
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -45,6 +45,7 @@ Visit my website: https://racmanuel.dev/
 
 
 == Privacy Policy ==
+
 QR Link Generator for WP uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
 
 Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users.
