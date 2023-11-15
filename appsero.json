@@ -6,6 +6,5 @@
         "composer.lock",
         ".gitignore",
         "assets/src"
-        "vendor"
     ]
 }
