@@ -19,7 +19,7 @@
  * Author:            Manuel Ramirez Coronel
  * Requires at least: 5.2
  * Requires PHP:      7.4
- * Tested up to:      6.2
+ * Tested up to:      6.4
  * Author URI:        https://racmanuel.dev/
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
