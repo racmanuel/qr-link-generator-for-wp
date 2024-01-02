@@ -157,7 +157,9 @@ Yes, all updates are free. Keeping the plugin updated is recommended for the bes
 
 == Changelog ==
 
+ - v1.0.6: Update appsero dependencies. 
+ - v1.0.5: Add a new README.txt and add support for WordPress 6.4, add appsero. 
 
 == Upgrade Notice ==
 
-v1.0.5: Add a new README.txt and add support for WordPress 6.4, add appsero. 
+ - v1.0.6: Update appsero dependencies. 
