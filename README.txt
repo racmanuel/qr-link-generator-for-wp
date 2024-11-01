@@ -1,10 +1,10 @@
 === QR Link Generator for WP ===
-Contributors: racmanuel
+Contributors: racmanuel, freemius
 Donate link: https://link.mercadopago.com.mx/racmanuel
-Tags: 1.0.5
+Tags: qr, qr code, qrcode, woocommerce
 Requires at least: 5.2
-Tested up to: 6.4
-Stable tag: 1.0.5
+Tested up to: 6.6
+Stable tag: 1.0.7
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -158,8 +158,9 @@ Yes, all updates are free. Keeping the plugin updated is recommended for the bes
 == Changelog ==
 
  - v1.0.6: Update appsero dependencies. 
- - v1.0.5: Add a new README.txt and add support for WordPress 6.4, add appsero. 
+ - v1.0.5: Add a new README.txt and add support for WordPress 6.4, add appsero.
+ - v1.0.7: Remove appsero dependencies and add Freemius SDK.  
 
 == Upgrade Notice ==
 
- - v1.0.6: Update appsero dependencies. 
+ - v1.0.7: Remove appsero dependencies and add Freemius SDK, remove uninstall.php.

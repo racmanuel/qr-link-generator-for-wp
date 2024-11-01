@@ -108,7 +108,7 @@ class Qr_Link_Generator_For_Wp_Public
      * @param    mixed  $content ShortCode enclosed content.
      * @param    string $tag    The Shortcode tag.
      */
-    public function qr_link_generator_for_wp_shortcode_func($atts, $content = null, $tag)
+    public function qr_link_generator_for_wp_shortcode_func($atts, $content = null)
     {
 
         /**
