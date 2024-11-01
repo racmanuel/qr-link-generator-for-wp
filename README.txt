@@ -87,13 +87,13 @@ Visit my website👨🏻‍💻👀: https://racmanuel.dev/
 
 = Privacy Policy =
 
-QR Link Generator for WP uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+QR Link Generator for WP uses the Freemius SDK to collect telemetry data, but only with the user's explicit consent. This data collection helps us troubleshoot issues and improve our product.
 
-Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users.
+- **No data is gathered by default.**
+- Data collection only begins **after user consent via the admin notice**.
+- Collected data ensures a great user experience.
 
-Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
-
-Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
+Integrating the Freemius SDK **does not immediately start data collection without user confirmation**.
 
 == Installation ==
 
