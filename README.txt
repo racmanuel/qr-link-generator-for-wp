@@ -4,7 +4,7 @@ Donate link: https://link.mercadopago.com.mx/racmanuel
 Tags: qr, qr code, qrcode, woocommerce, shortcode, product qr code, generator, dynamic qr, barcode, ecommerce, frontend, wordpress plugin
 Requires at least: 5.2
 Tested up to: 6.8
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
