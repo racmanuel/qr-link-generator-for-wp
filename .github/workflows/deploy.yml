@@ -1,21 +1,20 @@
 name: Deploy to WordPress.org
 
 on:
-  workflow_dispatch:
   push:
     tags:
-      - 'v*'
+      - "*" # Ejecuta el deploy en cualquier nuevo tag
 
 jobs:
   deploy:
-    name: WordPress Plugin Deploy
+    name: Deploy plugin
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout plugin code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up PHP with Composer
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
@@ -24,13 +23,13 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-dev --prefer-dist --no-progress
 
-      - name: Remove development files
+      - name: Remove dev files
         run: |
           rm -rf node_modules
           rm -f prepros.config
 
       - name: WordPress Plugin Deploy
-        uses: 10up/action-wordpress-plugin-deploy@2.3.0
+        uses: 10up/action-wordpress-plugin-deploy@stable
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
