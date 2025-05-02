@@ -1,0 +1,36 @@
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    name: Deploy plugin to WordPress.org
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout plugin code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+
+      - name: Remove development files (node_modules and prepros.config)
+        run: |
+          rm -rf node_modules
+          rm -f prepros.config
+
+      - name: Deploy to WordPress.org
+        uses: 10up/action-wordpress-plugin-deploy@v2.2.0
+        with:
+          slug: qr-link-generator-for-wp
+          svn_username: ${{ secrets.SVN_USERNAME }}
+          svn_password: ${{ secrets.SVN_PASSWORD }}
