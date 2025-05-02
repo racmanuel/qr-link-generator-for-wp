@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'f558aa2c2dfc77cbf7043676d79e9357394d4241',
+        'reference' => '12e7392e891778c3525662e87a82de2c0f337a2a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,16 +13,16 @@
         '__root__' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f558aa2c2dfc77cbf7043676d79e9357394d4241',
+            'reference' => '12e7392e891778c3525662e87a82de2c0f337a2a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'chillerlan/php-qrcode' => array(
-            'pretty_version' => '4.4.1',
-            'version' => '4.4.1.0',
-            'reference' => 'f5e243f3b61a60934780579430a951460f40888d',
+            'pretty_version' => '4.4.2',
+            'version' => '4.4.2.0',
+            'reference' => '345ed8e4ffb56e6b3fcd9f42e3970b9026fa6ce4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../chillerlan/php-qrcode',
             'aliases' => array(),
@@ -49,7 +49,7 @@
         'freemius/wordpress-sdk' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '56696717c5f0b7fb395618e88e1b592d1893e5dc',
+            'reference' => '9ad5477e4f0a39999b96bb21d0327bc6841d4590',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(
