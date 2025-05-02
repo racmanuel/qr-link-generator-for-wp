@@ -157,10 +157,24 @@ Yes, all updates are free. Keeping the plugin updated is recommended for the bes
 
 == Changelog ==
 
- - v1.0.6: Update appsero dependencies. 
- - v1.0.5: Add a new README.txt and add support for WordPress 6.4, add appsero.
- - v1.0.7: Remove appsero dependencies and add Freemius SDK.  
+= 1.0.8 =
+* Added CMB2 fields for frontend text translations.
+* Improved escaping and output security for all public templates.
+
+= 1.0.7 =
+* Removed Appsero dependencies.
+* Integrated Freemius SDK.
+* Removed uninstall.php.
+
+= 1.0.6 =
+* Updated Appsero dependencies.
+
+= 1.0.5 =
+* Added new readme.txt.
+* Added support for WordPress 6.4.
+* Integrated Appsero.
 
 == Upgrade Notice ==
 
- - v1.0.7: Remove appsero dependencies and add Freemius SDK, remove uninstall.php.
+= 1.0.8 =
+Adds support for translatable frontend fields and improves security output in templates.
