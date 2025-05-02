@@ -1,7 +1,7 @@
 === QR Link Generator for WP ===
 Contributors: racmanuel, freemius
 Donate link: https://link.mercadopago.com.mx/racmanuel
-Tags: qr, qr code, qrcode, woocommerce
+Tags: qr, qr code, qrcode, woocommerce, shortcode, product qr code, generator, dynamic qr, barcode, ecommerce, frontend, wordpress plugin
 Requires at least: 5.2
 Tested up to: 6.8
 Stable tag: 1.0.8
