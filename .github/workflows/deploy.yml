@@ -28,7 +28,13 @@ jobs:
           rm -rf node_modules
           rm -f prepros.config
 
-      - name: WordPress Plugin Deploy
+      - name: ✅ Update readme.txt and assets in WordPress.org trunk
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+
+      - name: 🚀 WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
