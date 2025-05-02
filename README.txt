@@ -3,13 +3,13 @@ Contributors: racmanuel, freemius
 Donate link: https://link.mercadopago.com.mx/racmanuel
 Tags: qr, qr code, qrcode, woocommerce
 Requires at least: 5.2
-Tested up to: 6.6
-Stable tag: 1.0.7
+Tested up to: 6.8
+Stable tag: 1.0.8
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Plugin to generate QR code with link inserted by the user in the front-end with a form using a shortcode and also generates QR codes for all products in WooCommerce.
+Generates QR codes from a frontend form via shortcode and adds QR codes to WooCommerce products.
 
 == Description ==
 

@@ -64,9 +64,9 @@ class Qr_Link_Generator_For_Wp_Public
     public function __construct($plugin_name, $plugin_prefix, $version)
     {
 
-        $this->plugin_name = $plugin_name;
+        $this->plugin_name   = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
-        $this->version = $version;
+        $this->version       = $version;
 
     }
 
@@ -78,7 +78,7 @@ class Qr_Link_Generator_For_Wp_Public
     public function enqueue_styles()
     {
 
-        wp_register_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/qr-link-generator-for-wp-public-dist.css', array(), $this->version, 'all');
+        wp_register_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/qr-link-generator-for-wp-public-dist.css', [], $this->version, 'all');
 
     }
 
@@ -90,9 +90,11 @@ class Qr_Link_Generator_For_Wp_Public
     public function enqueue_scripts()
     {
 
-        wp_register_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/qr-link-generator-for-wp-public-dist.js', array('jquery'), $this->version, true);
-        wp_register_script($this->plugin_name . '-qrcode', plugin_dir_url(__FILE__) . 'js/qrcode.min.js', array('jquery'), $this->version, true);
-
+        wp_register_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/qr-link-generator-for-wp-public-dist.js', ['jquery'], $this->version, true);
+        wp_register_script($this->plugin_name . '-qrcode', plugin_dir_url(__FILE__) . 'js/qrcode.min.js', ['jquery'], $this->version, true);
+        wp_localize_script($this->plugin_name, 'ajax_object', [
+            'Tooltip' => __('Insert here your content can be a URL or any text that is converted to QR Code. The QR Code changes automatically when changing the content of the field.', 'qr-link-generator-for-wp'),
+        ]);
     }
 
     /**
@@ -120,9 +122,9 @@ class Qr_Link_Generator_For_Wp_Public
          * @see https://developer.wordpress.org/reference/hooks/shortcode_atts_shortcode/
          */
         $atts = shortcode_atts(
-            array(
+            [
                 'attribute' => 123,
-            ),
+            ],
             $atts,
             $this->plugin_prefix . 'shortcode'
         );
@@ -139,10 +141,17 @@ class Qr_Link_Generator_For_Wp_Public
         /**
          * If the shortcode is enclosing, we may want to do something with $content
          */
-        if (!is_null($content) && !empty($content)) {
-            $out = do_shortcode($content); // We can parse shortcodes inside $content.
+        if (! is_null($content) && ! empty($content)) {
+            $out = do_shortcode($content);                                       // We can parse shortcodes inside $content.
             $out = intval($atts['attribute']) . ' ' . sanitize_text_field($out); // Remember to sanitize your user input.
         }
+
+        $placeholder = cmb2_get_option('qr_link_generator_for_wp_settings', 'qr_link_generator_for_wp_input_placeholder', __('Insert your content here.', 'qr-link-generator-for-wp'));
+        $credit_text = cmb2_get_option(
+            'qr_link_generator_for_wp_settings',
+            'qr_link_generator_for_wp_credit_text',
+            __('Made with %1$s and Code by %2$s', 'qr-link-generator-for-wp')
+        );
 
         ob_start();
         include_once 'partials/' . $this->plugin_name . '-public-display.php';
@@ -163,21 +172,26 @@ class Qr_Link_Generator_For_Wp_Public
         // Get the name of the Tab
         $name_tab = $settings['qr_link_generator_for_wp_text_tab'];
 
-        $tabs['qr-code'] = array(
-            'title' => $name_tab, //change "Custom Product tab" to any text you want
+        $tabs['qr-code'] = [
+            'title'    => $name_tab, //change "Custom Product tab" to any text you want
             'priority' => 50,
-            'callback' => array(__CLASS__, 'qr_link_generator_for_wp_product_tab_content'),
-        );
+            'callback' => [__CLASS__, 'qr_link_generator_for_wp_product_tab_content'],
+        ];
         return $tabs;
     }
 
-    // Add content to a custom product tab
+    /**
+     * Output content inside the custom product tab for WooCommerce.
+     */
     public static function qr_link_generator_for_wp_product_tab_content()
     {
         global $product;
-        // Now you have access to (see above)...
-        $URL = $product->get_permalink();
 
+        if (! $product) {
+            return;
+        }
+
+        $URL = $product->get_permalink();
 
         $settings = get_option('qr_link_generator_for_wp_settings');
 
@@ -187,15 +201,15 @@ class Qr_Link_Generator_For_Wp_Public
         $button_color = $settings['qr_link_generator_for_wp_button_color'];
         $button_background_color = $settings['qr_link_generator_for_wp_button_background'];
         $button_hide = $settings['qr_link_generator_for_wp_hide_button'];
-        $class = '';
-        if ($button_hide == 'yes') {
-            $class = 'none';
-        }
-        $qrcode = new QRCode;
-        ob_start();
 
+        $class = ($button_hide === 'yes') ? 'none' : '';
+
+        $qrcode = new QRCode();
+
+        ob_start();
         require 'partials/qr-link-generator-for-wp-public-display-qr.php';
         $html = ob_get_clean();
+
         echo $html;
     }
 }
