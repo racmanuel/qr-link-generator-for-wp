@@ -3,7 +3,7 @@ name: Deploy to WordPress.org
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: "7.4"
           tools: composer
 
       - name: Install Composer dependencies
@@ -29,7 +29,7 @@ jobs:
           rm -f prepros.config
 
       - name: Deploy to WordPress.org
-        uses: 10up/action-wordpress-plugin-deploy@v2.2.0
+        uses: 10up/action-wordpress-plugin-deploy@v2.3.0
         with:
           slug: qr-link-generator-for-wp
           svn_username: ${{ secrets.SVN_USERNAME }}
