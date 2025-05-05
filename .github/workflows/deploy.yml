@@ -23,9 +23,6 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      - name: Ensure .wordpress-org directory exists
-        run: mkdir -p .wordpress-org
-
       - name: Remove dev files
         run: |
           rm -rf node_modules
