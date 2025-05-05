@@ -17,7 +17,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: "8.1"
           tools: composer
 
       - name: Install Composer dependencies
@@ -33,6 +33,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          ASSETS_DIR: assets
 
       - name: 🚀 WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
