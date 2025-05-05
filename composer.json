@@ -2,7 +2,7 @@
     "require": {
         "chillerlan/php-qrcode": "^4.3",
         "cmb2/cmb2": "^2.10",
-        "freemius/wordpress-sdk": "dev-master"
+        "freemius/wordpress-sdk": "^2.11"
     },
     "autoload": {
         "files": ["vendor/cmb2/cmb2/init.php"]

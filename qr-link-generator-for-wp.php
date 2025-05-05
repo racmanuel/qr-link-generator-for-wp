@@ -15,7 +15,7 @@
  * Plugin Name:       QR Link Generator for WP
  * Plugin URI:        https://plugin.com/qr-link-generator-for-wp-uri/
  * Description:       Generates QR codes from a frontend form via shortcode and adds QR codes to WooCommerce products.
- * Version:           1.0.10
+ * Version:           1.0.11
  * Author:            Manuel Ramirez Coronel
  * Requires at least: 5.2
  * Requires PHP:      8.1
@@ -42,7 +42,7 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('QR_LINK_GENERATOR_FOR_WP_VERSION', '1.0.9');
+define('QR_LINK_GENERATOR_FOR_WP_VERSION', '1.0.11');
 
 /**
  * Define the Plugin basename
@@ -56,8 +56,6 @@ if (!function_exists('qr_link_for_wp')) {
         global $qr_link_for_wp;
 
         if (!isset($qr_link_for_wp)) {
-            // Include Freemius SDK.
-            require_once dirname(__FILE__) . '/vendor/freemius/wordpress-sdk/start.php';
 
             $qr_link_for_wp = fs_dynamic_init(array(
                 'id' => '16955',
