@@ -39,14 +39,13 @@ import "tippy.js/dist/tippy.css"; // optional for styling
         }
       });
 
+    console.log(ajax_object.Tooltip);
+
     tippy("#qr-link-generator-for-wp-input-value", {
       arrow: true,
       theme: "translucent",
       delay: 500,
-      content:
-        typeof ajax_object !== "undefined"
-          ? ajax_object.Tooltip
-          : "Insert your content to generate a QR Code.",
+      content: ajax_object.Tooltip
     });
   });
 })(jQuery);

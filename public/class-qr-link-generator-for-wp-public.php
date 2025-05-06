@@ -92,8 +92,15 @@ class Qr_Link_Generator_For_Wp_Public
 
         wp_register_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/qr-link-generator-for-wp-public-dist.js', ['jquery'], $this->version, true);
         wp_register_script($this->plugin_name . '-qrcode', plugin_dir_url(__FILE__) . 'js/qrcode.min.js', ['jquery'], $this->version, true);
+
+        // Obtener el texto del tooltip desde las opciones del plugin (CMB2)
+        $tooltip_text = cmb2_get_option('qr_link_generator_for_wp_settings', 'qr_link_generator_for_wp_tooltip_text', '');
+
+        // Si está vacío, usar el texto traducido por defecto
+        $tooltip_text = $tooltip_text ?: __('Insert here your content can be a URL or any text that is converted to QR Code. The QR Code changes automatically when changing the content of the field.', 'qr-link-generator-for-wp');
+        
         wp_localize_script($this->plugin_name, 'ajax_object', [
-            'Tooltip' => __('Insert here your content can be a URL or any text that is converted to QR Code. The QR Code changes automatically when changing the content of the field.', 'qr-link-generator-for-wp'),
+            'Tooltip' => $tooltip_text,
         ]);
     }
 
@@ -195,12 +202,12 @@ class Qr_Link_Generator_For_Wp_Public
 
         $settings = get_option('qr_link_generator_for_wp_settings');
 
-        $size = $settings['qr_link_generator_for_wp_size'];
-        $align = $settings['qr_link_generator_for_wp_align'];
-        $text_download = $settings['qr_link_generator_for_wp_text_download'];
-        $button_color = $settings['qr_link_generator_for_wp_button_color'];
+        $size                    = $settings['qr_link_generator_for_wp_size'];
+        $align                   = $settings['qr_link_generator_for_wp_align'];
+        $text_download           = $settings['qr_link_generator_for_wp_text_download'];
+        $button_color            = $settings['qr_link_generator_for_wp_button_color'];
         $button_background_color = $settings['qr_link_generator_for_wp_button_background'];
-        $button_hide = $settings['qr_link_generator_for_wp_hide_button'];
+        $button_hide             = $settings['qr_link_generator_for_wp_hide_button'];
 
         $class = ($button_hide === 'yes') ? 'none' : '';
 

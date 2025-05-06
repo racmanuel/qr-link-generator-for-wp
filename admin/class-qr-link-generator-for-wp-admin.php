@@ -115,22 +115,6 @@ class Qr_Link_Generator_For_Wp_Admin
             'save_button'  => esc_html__('Save', 'qr-link-generator-for-wp'), // The text for the options-page save button. Defaults to 'Save'.
         ]);
 
-        // 🔹 Sección: Activación general
-        $cmb->add_field([
-            'name' => __('General Settings', 'qr-link-generator-for-wp'),
-            'type' => 'title',
-            'id'   => 'qr_link_generator_for_wp_section_general',
-        ]);
-
-        $cmb->add_field([
-            'name' => __('Active QR', 'qr-link-generator-for-wp'),
-            'desc' => __('Check the box if you need to show the QR Code in WooCommerce products.', 'qr-link-generator-for-wp'),
-            'id'   => 'qr_link_generator_for_wp_active',
-            'type' => 'checkbox',
-        ]);
-
-        // 🔹 Sección: Tooltip
-
         // 🔹 Sección: Frontend Display Texts
         $cmb->add_field([
             'name' => __('Frontend Texts', 'qr-link-generator-for-wp'),
@@ -162,9 +146,23 @@ class Qr_Link_Generator_For_Wp_Admin
             'default' => __('Made with %1$s and Code by %2$s', 'qr-link-generator-for-wp'),
         ]);
 
+        // 🔹 Sección: Activación general
+        $cmb->add_field([
+            'name' => __('Active QR in WooCommerce Tabs', 'qr-link-generator-for-wp'),
+            'type' => 'title',
+            'id'   => 'qr_link_generator_for_wp_section_general',
+        ]);
+
+        $cmb->add_field([
+            'name' => __('Active QR', 'qr-link-generator-for-wp'),
+            'desc' => __('Check the box if you need to show the QR Code in WooCommerce products.', 'qr-link-generator-for-wp'),
+            'id'   => 'qr_link_generator_for_wp_active',
+            'type' => 'checkbox',
+        ]);
+
         // 🔹 Sección: Apariencia
         $cmb->add_field([
-            'name' => __('QR Appearance', 'qr-link-generator-for-wp'),
+            'name' => __('QR Appearance in WooCommerce Product Tabs', 'qr-link-generator-for-wp'),
             'type' => 'title',
             'id'   => 'qr_link_generator_for_wp_section_display',
         ]);
@@ -224,13 +222,6 @@ class Qr_Link_Generator_For_Wp_Admin
             'id'      => 'qr_link_generator_for_wp_button_background',
             'type'    => 'colorpicker',
             'default' => '#ffffff',
-        ]);
-
-        // 🔹 Sección: WooCommerce Product Page
-        $cmb->add_field([
-            'name' => __('Product Page Settings', 'qr-link-generator-for-wp'),
-            'type' => 'title',
-            'id'   => 'qr_link_generator_for_wp_section_products',
         ]);
 
         $cmb->add_field([
