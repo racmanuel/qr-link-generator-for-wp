@@ -4,7 +4,7 @@ Donate link: https://link.mercadopago.com.mx/racmanuel
 Tags: qr, qr code, qrcode, woocommerce, shortcode, product qr code
 Requires at least: 5.2
 Tested up to: 6.8
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -157,6 +157,9 @@ Yes, all updates are free. Keeping the plugin updated is recommended for the bes
 
 == Changelog ==
 
+= 1.0.12 =
+* FIX translations on the settings with tooltip
+
 = 1.0.8 =
 * Added CMB2 fields for frontend text translations.
 * Improved escaping and output security for all public templates.
@@ -176,5 +179,5 @@ Yes, all updates are free. Keeping the plugin updated is recommended for the bes
 
 == Upgrade Notice ==
 
-= 1.0.11 =
-FIX Bugs with Freemius SDK
+= 1.0.12 =
+FIX translations on the settings with tooltip
