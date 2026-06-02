@@ -167,3 +167,64 @@ function qr_link_generator_for_wp_run()
 
 }
 qr_link_generator_for_wp_run();
+
+/**
+ * Register the Gutenberg block.
+ *
+ * @since 1.1.0
+ */
+function qr_link_generator_for_wp_register_blocks() {
+
+    $block_dir = plugin_dir_path( __FILE__ ) . 'blocks/qr-code';
+
+    if ( ! file_exists( $block_dir . '/block.json' ) ) {
+        return;
+    }
+
+    // Register the QR code JS library for client-side preview in the editor.
+    $qrcode_handle = 'qr-link-generator-for-wp-qrcode';
+    $qrcode_asset_path = plugin_dir_path( __FILE__ ) . 'public/js/qrcode.min.js';
+
+    if ( file_exists( $qrcode_asset_path ) ) {
+        wp_register_script(
+            $qrcode_handle,
+            plugin_dir_url( __FILE__ ) . 'public/js/qrcode.min.js',
+            array(),
+            QR_LINK_GENERATOR_FOR_WP_VERSION,
+            true
+        );
+    }
+
+    $registered = register_block_type_from_metadata( $block_dir );
+
+    // Localize the editor script with plugin settings (placeholder text)
+    // and add qrcode.min.js as a dependency.
+    if ( $registered && ! empty( $registered->editor_script ) ) {
+
+        // Add qrcode.min.js as dependency for live preview in editor.
+        $deps = wp_scripts()->query( $registered->editor_script, 'registered' );
+        if ( $deps && ! in_array( $qrcode_handle, $deps->deps, true ) ) {
+            $deps->deps[] = $qrcode_handle;
+        }
+
+        $settings    = get_option( 'qr_link_generator_for_wp_settings', array() );
+        $placeholder = isset( $settings['qr_link_generator_for_wp_input_placeholder'] ) && ! empty( $settings['qr_link_generator_for_wp_input_placeholder'] )
+            ? $settings['qr_link_generator_for_wp_input_placeholder']
+            : __( 'Insert your content here.', 'qr-link-generator-for-wp' );
+
+        wp_localize_script(
+            $registered->editor_script,
+            'qrSettings',
+            array(
+                'placeholder' => $placeholder,
+            )
+        );
+
+        wp_set_script_translations(
+            $registered->editor_script,
+            'qr-link-generator-for-wp',
+            plugin_dir_path( __FILE__ ) . 'languages'
+        );
+    }
+}
+add_action( 'init', 'qr_link_generator_for_wp_register_blocks' );

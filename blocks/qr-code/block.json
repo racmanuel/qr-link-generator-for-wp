@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "qr-link-generator-for-wp/qr-code",
+  "version": "1.0.0",
+  "title": "QR Code",
+  "category": "widgets",
+  "icon": {
+    "src": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M19 8h-1V6h-5v2h-2V6H6v2H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm.5 10c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v8z'/></svg>"
+  },
+  "description": "Genera un c\u00f3digo QR para cualquier URL o texto, con soporte opcional para productos WooCommerce.",
+  "keywords": [
+    "qr",
+    "c\u00f3digo qr",
+    "qr code",
+    "link",
+    "woocommerce"
+  ],
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "size": {
+      "type": "number",
+      "default": 200
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "showDownload": {
+      "type": "boolean",
+      "default": true
+    },
+    "downloadText": {
+      "type": "string",
+      "default": "Descargar QR Code"
+    },
+    "productId": {
+      "type": "number",
+      "default": 0
+    },
+    "sourceType": {
+      "type": "string",
+      "default": "custom",
+      "enum": ["custom", "product"]
+    }
+  },
+  "supports": {
+    "align": false,
+    "html": false,
+    "customClassName": true,
+    "reusable": false
+  },
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/style-index.css",
+  "style": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "textdomain": "qr-link-generator-for-wp"
+}

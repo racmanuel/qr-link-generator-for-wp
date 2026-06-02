@@ -1,0 +1,48 @@
+/**
+ * QR Code Block Styles
+ *
+ * @package Qr_Link_Generator_For_Wp
+ */
+
+.qr-link-generator-for-wp-block-wrapper {
+	width: 100%;
+
+	.qr-link-generator-for-wp-block-qr {
+		display: inline-block;
+		padding: 10px;
+
+		img,
+		canvas {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	.qr-link-generator-for-wp-block-empty {
+		padding: 40px 20px;
+		border: 2px dashed #ccc;
+		border-radius: 4px;
+		color: #999;
+		font-size: 14px;
+		text-align: center;
+		background: #f9f9f9;
+	}
+
+	.qr-link-generator-for-wp-block-label {
+		margin-top: 8px;
+		font-size: 12px;
+		color: #666;
+		word-break: break-all;
+	}
+}
+
+.qr-link-generator-for-wp-block-content {
+	.qr-link-generator-for-wp-block-image {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.qr-link-generator-for-wp-download-button {
+		margin-top: 10px;
+	}
+}

@@ -1,8 +1,20 @@
 {
-  "name": "prepros-project",
-  "version": "1.0.0",
-  "description": "This is a dummy package.json file created by Prepros to manage packages with NPM. You can edit this file to add your own information.",
-  "type": "module",
+  "name": "qr-link-generator-for-wp",
+  "version": "1.0.12",
+  "description": "QR Link Generator for WP – Gutenberg block and frontend QR code generation.",
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/icons": "^13.2.0",
+    "@wordpress/scripts": "^30.0.0"
+  },
   "dependencies": {
     "tippy.js": "^6.3.7"
   }
